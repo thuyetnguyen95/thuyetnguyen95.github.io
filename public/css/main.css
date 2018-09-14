@@ -1,35 +1,12 @@
+/* All */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Open Sans", sans-serif
+}
 
-.wrapper {
-    width: 65%;
-    margin: 0 auto;
-    box-shadow: 1px 4px 12px 4px #dbdbdb;
-    min-height: 700px;
-    margin-top: 2%;
-}
-.header {
-    text-align: center;
-    padding-top: 30px;
-}
-.basic-info {
-    border-bottom: 1px solid #000;
-}
-.fullname {
-    font-weight: 700;
-}
-.address, .contact {
-    margin: 0;
-    padding: 0px;
-}
-.contact a {
-    text-decoration: none;
-    color: #000;
-}
-.contact i.fa-phone {
-    color: #3bb673
-}
-.contact i.fa-envelope {
-    color: #c75b5b
-}
-.contact i.fa-facebook {
-    color: #0b59bd
-}
+/* Another element */

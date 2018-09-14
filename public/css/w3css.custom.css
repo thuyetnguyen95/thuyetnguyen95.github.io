@@ -1,0 +1,8 @@
+.w3-button:hover, .w3-hover-white:hover {
+	opacity: 0.6;
+	transition: 0.6s linear;
+}
+
+.w3-modal-small {
+    width: 25%;
+}
