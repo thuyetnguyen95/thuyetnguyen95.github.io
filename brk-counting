@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Brk counting</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <style>
+        body, p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0;}
+        .wrapper {background: radial-gradient(ellipse at center,  #0a2e38  10%, #000000 70%);width: 100vw;height: 100vh;background-color: red;color: #daf6ff;}
+        #app { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
+        .brk-info { font-size: 32px; }
+        .days { font-size: 64px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="app">
+            <div class="brk-info">
+                <p class="current-date">Today: {{ currentDate }}</p>
+                <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            brkDay: '2019-07-21',
+            currentDate: moment().format('YYYY-MM-DD'),
+        },
+        computed: {
+            brkDaysCount() {
+                return moment().diff(this.brkDay, 'days')
+            }
+        }
+    })
+</script>
+</html>
