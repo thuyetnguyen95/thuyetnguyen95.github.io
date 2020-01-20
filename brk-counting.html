@@ -14,6 +14,7 @@
         #app { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;}
         .brk-info { font-size: 32px; }
         .days { font-size: 64px; }
+        .months { font-size: 45px; }
     </style>
 </head>
 <body>
@@ -22,6 +23,7 @@
             <div class="brk-info">
                 <p class="current-date">Today: {{ currentDate }}</p>
                 <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
+                <p class="counting">Days: <span class="months">{{ brkMonthsCount }}</span></p>
             </div>
         </div>
     </div>
@@ -37,6 +39,10 @@
         computed: {
             brkDaysCount() {
                 return moment().diff(this.brkDay, 'days')
+            },
+            
+            brkMonthsCount() {
+                return moment().diff(this.brkDay, 'months', true)
             }
         }
     })
