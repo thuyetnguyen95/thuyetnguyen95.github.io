@@ -23,7 +23,7 @@
             <div class="brk-info">
                 <p class="current-date">Today: {{ currentDate }}</p>
                 <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
-                <p class="counting">Days: <span class="months">{{ brkMonthsCount }}</span></p>
+                <p class="counting">Months: <span class="months">{{ brkMonthsCount }}</span></p>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
             },
             
             brkMonthsCount() {
-                return moment().diff(this.brkDay, 'months', true)
+                return moment().diff(this.brkDay, 'months', true).toFixed(2)
             }
         }
     })
