@@ -22,8 +22,12 @@
         <div id="app">
             <div class="brk-info">
                 <p class="current-date">Today: {{ currentDate }}</p>
-                <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
-                <p class="counting">Months: <span class="months">{{ brkMonthsCount }}</span></p>
+                <!-- Close brkDay -->
+                <!-- <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
+                <p class="counting">Months: <span class="months">{{ brkMonthsCount }}</span></p> -->
+
+                <p class="counting">Days: <span class="days">{{ returnDaysLeft }}</span></p>
+                <p class="counting">Months: <span class="months">{{ returnMonthsLeft }}</span></p>
             </div>
         </div>
     </div>
@@ -34,6 +38,7 @@
         el: '#app',
         data: {
             brkDay: '2019-07-21',
+            returnDay: '2020-05-01',
             currentDate: moment().format('YYYY-MM-DD'),
         },
         computed: {
@@ -43,7 +48,15 @@
             
             brkMonthsCount() {
                 return moment().diff(this.brkDay, 'months', true).toFixed(3)
-            }
+            },
+
+            returnDaysLeft() {
+                return -moment().diff(this.returnDay, 'days')
+            },
+
+            returnMonthsLeft() {
+                return -moment().diff(this.returnDay, 'months', true).toFixed(3)
+            },
         }
     })
 </script>
