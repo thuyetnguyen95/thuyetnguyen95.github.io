@@ -26,8 +26,8 @@
                 <!-- <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
                 <p class="counting">Months: <span class="months">{{ brkMonthsCount }}</span></p> -->
 
-                <p class="counting">Days: <span class="days">{{ returnDaysLeft }}</span></p>
-                <p class="counting">Months: <span class="months">{{ returnMonthsLeft }}</span></p>
+                <p class="counting">Days: <span class="days">{{ vnTetDaysLeft }}</span></p>
+                <p class="counting">Months: <span class="months">{{ vnTetMonthsLeft }}</span></p>
             </div>
         </div>
     </div>
@@ -44,6 +44,7 @@
             brkDay: '2019-07-21',
             returnDay: '2020-07-01',//2020-05-01
             currentDate: moment().format('YYYY-MM-DD'),
+            tetDate: '2021-02-12',
         },
         computed: {
             brkDaysCount() {
@@ -61,6 +62,14 @@
             returnMonthsLeft() {
                 return -moment().diff(this.returnDay, 'months', true).toFixed(3)
             },
+            
+            vnTetDaysLeft() {
+                return -moment().diff(this.tetDate, 'days')
+            },
+            
+            vnTetMonthsLeft() {
+                return -moment().diff(this.tetDate, 'months')
+            }
         }
     })
 </script>
