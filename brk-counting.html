@@ -68,7 +68,7 @@
             },
             
             vnTetMonthsLeft() {
-                return -moment().diff(this.tetDate, 'months')
+                return -moment().diff(this.tetDate, 'months', true).toFixed(2)
             }
         }
     })
