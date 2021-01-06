@@ -15,6 +15,20 @@
         .brk-info { font-size: 32px; }
         .days { font-size: 64px; }
         .months { font-size: 45px; }
+        .clock {
+          width: 360px;
+          height: 120px;
+        }
+        .hr, .min, .sec, .colon {
+          color: var(--text);
+          text-shadow: 0 0 10px var(--shadow-1), 0 0 15px var(--shadow-2), 0 0 20px var(--shadow-2);
+        }
+        .hr, .min, .sec, .colon {
+          width: 20%;
+          float: left;
+          text-align: center;
+          font-size: 4rem;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +42,17 @@
 
                 <p class="counting">Days: <span class="days">{{ vnTetDaysLeft }}</span></p>
                 <p class="counting">Months: <span class="months">{{ vnTetMonthsLeft }}</span></p>
+            </div>
+            
+            <div class='container'>
+                <div class='clock'>
+                  <div class='hr'></div>
+                  <div class='colon'>:</div>
+                  <div class='min'></div>
+                  <div class='colon'>:</div>
+                  <div class='sec'></div>
+                </div>
+              </div>
             </div>
         </div>
     </div>
@@ -69,6 +94,20 @@
             
             vnTetMonthsLeft() {
                 return -moment().diff(this.tetDate, 'months', true).toFixed(2)
+            }
+        },
+        created() {
+            setInterval( this.clock, 1000 );
+        },
+        methods: {
+            clock() {
+              var d = new Date();
+              var hr = d.getHours().toString().padStart(2, '0');
+              var min = d.getMinutes().toString().padStart(2, '0');
+              var sec = d.getSeconds().toString().padStart(2, '0');
+              document.querySelector('.hr').innerHTML = hr;
+              document.querySelector('.min').innerHTML = min;
+              document.querySelector('.sec').innerHTML = sec;
             }
         }
     })
