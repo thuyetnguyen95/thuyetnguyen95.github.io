@@ -41,8 +41,12 @@
                 <!-- <p class="counting">Days: <span class="days">{{ brkDaysCount }}</span></p>
                 <p class="counting">Months: <span class="months">{{ brkMonthsCount }}</span></p> -->
 
-                <p class="counting">Days: <span class="days">{{ vnTetDaysLeft }}</span></p>
-                <p class="counting">Months: <span class="months">{{ vnTetMonthsLeft }}</span></p>
+<!--                 <p class="counting">Days: <span class="days">{{ vnTetDaysLeft }}</span></p>
+                <p class="counting">Months: <span class="months">{{ vnTetMonthsLeft }}</span></p> -->
+                
+                <p class="counting">Days: <span class="days">{{ tigerBirthDay }}</span></p>
+                <p class="counting">Months: <span class="months">{{ tigerBirthMonth }}</span></p>
+                
             </div>
             
             <div class='container'>
@@ -71,6 +75,7 @@
             returnDay: '2020-07-01',//2020-05-01
             currentDate: moment().format('YYYY-MM-DD'),
             tetDate: '2021-02-12',
+            tigerBirth: '2021-06-27',
         },
         computed: {
             brkDaysCount() {
@@ -95,7 +100,15 @@
             
             vnTetMonthsLeft() {
                 return -moment().diff(this.tetDate, 'months', true).toFixed(2)
-            }
+            },
+            
+            tigerBirthMonth() {
+                return -moment().diff(this.tigerBirth, 'months', true).toFixed(2)
+            },
+            
+            tigerBirthDay() {
+                return -moment().diff(this.tigerBirth, 'days')
+            },
         },
         created() {
             setInterval( this.clock, 1000 );
